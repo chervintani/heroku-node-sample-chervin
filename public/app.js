@@ -5,7 +5,8 @@
 $(document).ready(function () {
 
 	const messageTypes = { LEFT: 'left', RIGHT: 'right', LOGIN: 'login' };
-
+	const me = messageTypes.RIGHT.avatar = "https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48";
+	const you = messageTypes.LEFT.avatar = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
 	//Chat stuff
 	const chatWindow = $('#chat');
 	const messagesList = $('#messagesList');
