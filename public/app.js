@@ -5,8 +5,8 @@
 $(document).ready(function () {
 
 	const messageTypes = { LEFT: 'left', RIGHT: 'right', LOGIN: 'login' };
-	const me = messageTypes.RIGHT.avatar = "https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48";
-	const you = messageTypes.LEFT.avatar = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
+	var me = "https://lh6.googleusercontent.com/-lr2nyjhhjXw/AAAAAAAAAAI/AAAAAAAARmE/MdtfUmC0M4s/photo.jpg?sz=48";
+	var you = "https://a11.t26.net/taringa/avatares/9/1/2/F/7/8/Demon_King1/48x48_5C5.jpg";
 	//Chat stuff
 	const chatWindow = $('#chat');
 	const messagesList = $('#messagesList');
@@ -65,7 +65,7 @@ $(document).ready(function () {
 		white-space: initial;
 		word-wrap: break-word;
 		overflow: hidden; padding: 20px;">
-		<p style="font-weight: bold">${
+		<p style="font-weight: bold"><img src="${me}" style="border-radius: 50%;">&nbsp&nbsp&nbsp${
 			message.type === messageTypes.LEFT ? message.author : ''
 			}</p>
      		${message.content} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>
@@ -123,6 +123,24 @@ $(document).ready(function () {
 				type: 'error',
 				title: 'Please input username!',
 			})
+		}else{
+
+			Swal.fire({
+				title: 'Gender',
+				text: "Select your gender:",
+				showCancelButton: true,
+				confirmButtonColor: '#0398fc',
+				cancelButtonColor: '#ba03fc',
+				cancelButtonText: 'Female',
+				confirmButtonText: 'Male'
+			  }).then((result) => {
+				if (result.value) {
+				  me = me;
+				}else {
+					me = you;
+				}
+			  })
+			  
 		}
 
 		//set the username and create logged in message
