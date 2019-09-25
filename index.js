@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require('path');
-const port = process.env.port||3000;
+const port = process.env.port || 3000;
 //Serve public directory
 var users = [];
 
@@ -22,8 +22,8 @@ io.on('connection', function (socket) {
 		// if (users.indexOf(data) > -1) {
 		// 	socket.emit('userExists', data + ' username is taken! Try some other username.');
 		// } else {
-			users.push(socket.nickname);
-			io.sockets.emit('allUsers', users);
+		users.push(socket.nickname);
+		io.sockets.emit('allUsers', users);
 		// }
 	});
 	//DISCONNECTION
@@ -47,6 +47,6 @@ io.on('connection', function (socket) {
 	});
 });
 
-http.listen(port, function () {
+http.listen(port, '0.0.0.0', function () {
 	console.log('listening on port ' + port);
 });
