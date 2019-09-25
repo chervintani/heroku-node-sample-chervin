@@ -1,0 +1,30 @@
+{
+  "name": "heroku-node-sample-chervin",
+  "version": "1.0.0",
+  "description": "A simple node app deployed to heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chervintani/heroku-node-sample-chervin.git"
+  },
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "author": "Chervin Tanilon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chervintani/heroku-node-sample-chervin/issues"
+  },
+  "homepage": "https://github.com/chervintani/heroku-node-sample-chervin#readme",
+  "engines": {
+    "node": "10.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
