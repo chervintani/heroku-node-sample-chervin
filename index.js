@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require('path');
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 //Serve public directory
 var users = [];
 
