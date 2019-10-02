@@ -1,0 +1,61 @@
+Steps for creating project with Node using Git and Heroku
+
+1. Create a Heroku account
+    https://signup.heroku.com/login
+2. Create online repository with README and .gitignore files
+    http://github.com/junreycloudstrife/heroku-sample 
+3. Clone the repository then go inside the project folder
+    git clone http://github.com/junreycloudstrife/heroku-sample.git
+    cd heroku-sample
+4. Login your Heroku account
+    heroku Login
+5. Setup package.json
+    npm init
+6. Get the local Node version
+    node --version
+7. Add this code in package.json then specify the local version of Node
+        "engines": {
+            "node": "10.x"
+        }
+8. Create the file Procfile (no file extension) then add this line
+    web: node index.js
+9. Create the index.js and index.html files (use the socket.io chat example)
+    https://socket.io/get-started/chat
+10. Install packages and save it to package.json
+    npm install --save <package-name>
+
+11. Set the port in index.js to process.env.PORT
+    app.listen(process.env.PORT);
+12. Add the following to .gitignore (if not already included)
+    node_modules/
+    npm-debug.log
+    .DS_Store
+    *.env/
+13. Commit changes to online repository
+    git add .
+    git commit -m "Comment"
+    git push
+14. Start application locally
+    heroku local web
+    (open http://localhost:5000 in the browser)
+15. Create an app on Heroku
+    heroku create heroku-sample
+16. Deploy to heroku
+    git push heroku master
+17. Ensure that at least one instance of the app is running
+    heroku ps:scale web=1
+18. Open the deployed project to browser
+    heroku open
+
+For troubleshooting
+19. Check the logs for errors
+    heroku logs --tail
+20. Set git remote
+    heroku git:remote --app heroku-sample-v1
+21. Rename the app
+    heroku apps:rename newname
+22. Clear the build cache
+    heroku plugins:install heroku-repo
+    heroku repo:purge_cache -a appname
+    git commit --allow-empty -m "Purge cache"
+    git push heroku master
